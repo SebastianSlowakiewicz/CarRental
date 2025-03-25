@@ -3,6 +3,9 @@ from django.db import models
 class Equipment(models.Model):
     equipment = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return self.equipment
+
 class Car(models.Model):
     ENGINE_TYPES = [
         ("benzyna", "Benzynowy"),
@@ -52,5 +55,11 @@ class Car(models.Model):
     availability = models.BooleanField()
     insurance_expiry_date= models.DateField()
     equipment = models.ManyToManyField(Equipment)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="images")
 
+    def __str__(self) -> str:
+        return self.brand + "  " + self.model
+    
+    @staticmethod
+    def get_car_category(category):
+        return dict(Car.CAR_CLASSES)[category]
