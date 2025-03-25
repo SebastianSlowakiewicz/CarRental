@@ -3,6 +3,9 @@ from django.db import models
 class Equipment(models.Model):
     equipment = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return self.equipment
+
 class Car(models.Model):
     ENGINE_TYPES = [
         ("benzyna", "Benzynowy"),
@@ -54,3 +57,5 @@ class Car(models.Model):
     equipment = models.ManyToManyField(Equipment)
     image = models.ImageField()
 
+    def __str__(self) -> str:
+        return self.brand + "  " + self.model
