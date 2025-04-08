@@ -59,7 +59,10 @@ class Car(models.Model):
 
     def __str__(self) -> str:
         return self.brand + "  " + self.model
+<<<<<<< HEAD
     
     @staticmethod
     def get_car_category(category):
         return dict(Car.CAR_CLASSES)[category]
+=======
+>>>>>>> fa572557779148508b331b1dabb2a7480a545535
