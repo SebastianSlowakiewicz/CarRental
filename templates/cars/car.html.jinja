@@ -1,4 +1,8 @@
 {% extends "base.html.jinja" %}
 {% block left_panel %}
-    <h2>{{car}}</h2>                
+    <h2>{{car}}</h2>  
+    <p>{{car.engine_power}}</p>   
+    {% for field, value in car.get_fields %}
+        {{ field }} : {{ value }}<br>
+    {% endfor %}
 {% endblock left_panel %}

@@ -63,3 +63,7 @@ class Car(models.Model):
     @staticmethod
     def get_car_category(category):
         return dict(Car.CAR_CLASSES)[category]
+    
+    @staticmethod
+    def get_all_categories():
+        return dict(Car.CAR_CLASSES)
