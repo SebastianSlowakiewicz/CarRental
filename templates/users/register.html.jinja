@@ -1,5 +1,13 @@
 {% extends "base.html.jinja" %}
 {% block left_panel %}
     <h2>Formularz rejestracji</h2>
-    {{form_users_register}}              
+    {% if message is defined %}
+        <p>{{message}}</p>
+        {% else %}
+        {% endif %}
+            <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {{form_users_register}}    
+            <button type="submit">Zarejestruj</button></form>
+
 {% endblock left_panel %}
