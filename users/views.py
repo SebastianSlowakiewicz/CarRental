@@ -1,16 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from . import forms
+from .forms import RegisterUserForm
 
 def register(request):
-    if request.method == 'post':
-        form_users_register = forms.RegisterUserForm(request.POST)
-        if form_users_register.is_valid():
-            form_users_register.save()
-            context = {'form_users_register': form_users_register}
-            return render(request, 'users/register.html.jinja', context=context)
+    if request.method == 'POST':
+        form_user_register = RegisterUserForm(request.POST)
+        if form_user_register.is_valid():
+            form_user_register.save()
+            return redirect('login')
     else:
-        context = {'message': 'Zonk!'}
-    return render(request, 'users/register.html.jinja', context=context)
+        form_user_register = RegisterUserForm()
+
+    context = {'form_user_register': form_user_register}
+    return render(request, 'users/register.html.jinja', context)
 
 def login(request):
     return render(request, 'users/login.html.jinja')

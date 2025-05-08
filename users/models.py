@@ -19,7 +19,7 @@ class Users(User):
         ("legitymacja_studencka", "Legitymacja studencka")
     ]
     phone = PhoneNumberField()
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True, blank=True)
     identity_document_type = models.CharField(max_length=50, choices=IDENTITY_DOCUMENT_TYPES)
     identity_document_no = models.CharField(max_length=50)
-    address = models.OneToOneField(Address, related_name= 'user_address_set', on_delete=models.CASCADE)
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True, blank=True)
