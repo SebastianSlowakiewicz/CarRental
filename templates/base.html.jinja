@@ -7,30 +7,23 @@
     <title>Wypożyczalnia samochodów</title>
 </head>
 <body>
-    <header class="navbar sticky-top bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1 text-center w-100"><a class="navbar-brand" href="{% url 'index' %}">Wypożyczalnia samochodów</a></span>
-        </div>
+    <header class="container sticky-bottom text-center">
+        <h1>Wypożyczalnia samochodów</h1>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{% url 'index' %}">Strona główna</a>
+                    <a class="nav-link" href="{% url 'cars' %}">Samochody</a>
+                    <a class="nav-link" href="{% url 'categories' %}">Kategorie</a>
+                </div>
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{% url 'register' %}">Zarejestruj</a>
+                    <a class="nav-link" href="{% url 'login' %}">Zaloguj</a>
+                    <a class="nav-link" href="{% url 'logout' %}">Wyloguj</a>
+                </div>
+            </div>
+        </nav>
     </header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-bottom">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"></button>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link" aria-current="page" href="{% url 'index' %}">Strona Główna</a>
-                <a class="nav-link" aria-current="page" href="{% url 'cars' %}">Samochody</a>
-                <a class="nav-link" aria-current="page" href="{% url 'categories' %}">Kategorie</a>
-            </div>
-            <div class="navbar-nav">
-                <a class="nav-link" aria-current="page" href="{% url 'register' %}">Zarejestruj</a>
-                <a class="nav-link" aria-current="page" href="{% url 'login' %}">Zaloguj</a>
-                <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Wyloguj</a>
-            </div>
-          </div>
-        </div>
-      </nav>
     <section  class="container">
         <div class="row">
             <div class="col-8">

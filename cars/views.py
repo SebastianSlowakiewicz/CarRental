@@ -19,5 +19,5 @@ def category(request, category_name):
 
 def categories(request):
     categories = Car.get_all_categories()
-    context = {'categories': category}
+    context = {'categories': categories}
     return render(request, 'cars/categories.html.jinja', context)
