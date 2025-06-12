@@ -1,1 +1,31 @@
 {% extends "base.html.jinja" %}
+{% load static %}
+
+{% block title %}Strona główna{% endblock %}
+{% block description %}Witamy w naszej wypożyczalni samochodów! Przeglądaj naszą ofertę i znajdź idealny pojazd dla siebie.{% endblock %}
+{% block keywords %}wypożyczalnia samochodów, wynajem aut, samochody na wynajem, oferta samochodów, kategorie samochodów{% endblock %}
+<div class="row">
+    <div class="col-md-8">
+        {% block left_panel %}
+        <div class="position-relative" style="margin-bottom: 100px;">
+            <img src="/media/images/main_photo.png" class="img-fluid rounded mx-auto d-block"
+                 alt="Samochód"
+                 style="width: 100%; height: 500px; object-fit: cover;">  
+            <div class="text-center position-absolute top-0 start-50 translate-middle-x p-4" 
+                style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); border-radius: 15px; color: white; margin-top: 20px; width: 80%;">
+                <h2>Witamy w wypożyczalni samochodów!</h2>
+                <p class="lead">Przeglądaj naszą ofertę samochodów i znajdź idealny pojazd dla siebie.</p>
+                <a class="btn btn-outline-success" href="{% url 'cars' %}">Nasza flota</a>
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block right_panel %}
+        <div class="text-center" style="margin-top: 20px;">
+            <h3>O nas</h3>
+            <p>{{ about_text|default:"Oferujemy szeroki wybór samochodów do wynajęcia. Sprawdź nasze kategorie i znajdź coś dla siebie!" }}</p>
+            <a class="btn btn-outline-success" href="{% url 'categories' %}">{{ button_text|default:"Poznaj kategorie!" }}</a>
+        </div>
+        {% endblock %}
+    </div>
+</div>

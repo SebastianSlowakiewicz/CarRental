@@ -21,3 +21,4 @@ def categories(request):
     categories = Car.get_all_categories()
     context = {'categories': categories}
     return render(request, 'cars/categories.html.jinja', context)
+

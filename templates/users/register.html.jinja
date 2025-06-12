@@ -1,11 +1,10 @@
 {% extends "base.html.jinja" %}
 {% block left_panel %}
 <h2>Rejestracja</h2>
-<form method="POST">
+<form method="POST" style=" margin-bottom: 100px; padding: 20px; border-right: 1px solid #ccc;">
     {% csrf_token %}
-    <div class="mb-3">{{ form_user_register.as_p }}</div>
-    <button type="submit">Zarejestruj się</button>
+    <div class="mb-3" style="margin-bottom: 15px;">{{ form_user_register.as_p }}</div>
+    <button type="submit" class="btn btn-outline-success" style="display: block; width: 100%; padding: 10px; cursor: pointer;">Zarejestruj się</button>
 </form>
-
 {% endblock left_panel %}
 

@@ -1,11 +1,44 @@
 {% extends "base.html.jinja" %}
 {% block left_panel %}
-    <h2>Lista samochodów</h2>
-    <div class="list-group">
+<h2>Lista samochodów</h2>
+<p>Wybierz samochód, aby zobaczyć szczegóły</p>
+<br>
+    <div class="list-group" style="padding-bottom: 100px">
+        {% if cars|length == 0 %}
+            <p class="alert alert-info" style="max-width: 400px;" role="alert">Brak samochodów w bazie danych.</p>
+        {% endif %}
+        
         {% for car in cars %}
-            <a type="button" class="list-group-item list-group-item-action" href="{% url 'car' car.id %}">{{car}}</button>
+            <a type="button" class="list-group-item list-group-item-action" href="{% url 'car' car.id %}">
+                {{car}}
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            segment: {{car.category}}
+                        </div>
+                        <div class="col">
+                            napęd: {{car.engine_type}}
+                        </div>
+                        <div class="col">
+                            skrzynia biegów: {{car.gearbox_type}}
+                        </div>
+                        <div class="col">
+                            ilość miejsc: {{car.seats_count}}
+                        </div>
+                        <div class="col">
+                            pojemność bagażnika: {{car.trunk_capacity}} l
+                        </div>
+                    </div>
+                </div>
+            </a>
         {% endfor %}   
     </div>
     
                  
 {% endblock left_panel %}
+
+{% block right_panel %}
+
+    {% endblock %}
+
+

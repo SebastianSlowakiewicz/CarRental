@@ -56,6 +56,7 @@ class Car(models.Model):
     insurance_expiry_date= models.DateField()
     equipment = models.ManyToManyField(Equipment)
     image = models.ImageField(upload_to="images")
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self) -> str:
         return self.brand + "  " + self.model

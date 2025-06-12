@@ -1,7 +1,99 @@
 {% extends "base.html.jinja" %}
+
 {% block left_panel %}
-    <h2>{{car}}</h2>  
-    {% for field, value in car.properties %}
-        <p>{{ field }} : {{ value }} </p>
-    {% endfor %}          
-{% endblock left_panel %}
+<div class="position-relative mb-5">
+    <img src="/media/{{ car.image }}" 
+         class="img-fluid rounded mx-auto d-block"
+         alt="{{ car }}"
+         style="margin-top: 40px; width: 40%; height: auto; object-fit: cover;">
+    <h2 class="text-center mt-3">{{ car }}</h2>
+    <p class="text-center">{{ car.description }}</p>
+    <div class="text-center">
+        <a class="btn btn-outline-success" href="{% url 'cars' %}">Wróć do listy samochodów</a>
+    </div>
+    <div class="mt-4">
+        {% for field, value in car.properties %}
+            <p><strong>{{ field }}:</strong> {{ value }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block right_panel %}
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <h5>napęd</h5>
+            <p>{{ car.engine_type }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>skrzynia biegów</h5>
+            <p>{{ car.gearbox_type }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>moc silnika</h5>
+            <p>{{ car.engine_power }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>pojemność silnika</h5>
+            <p>{{ car.engine_capacity }} cm³</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>ilość miejsc</h5>
+            <p>{{ car.seats_count }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>ilość drzwi</h5>
+            <p>{{ car.doors_count }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>pojemność bagażnika</h5>
+            <p>{{ car.trunk_capacity }} l</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>kolor</h5>
+            <p>{{ car.color }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>rodzaj nadwozia</h5>
+            <p>{{ car.body_type }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>segment</h5>
+            <p>{{ car.category }}</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>zużycie paliwa</h5>
+            <p>{{ car.fuel_usage }} l/100km</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>cena</h5>
+            <p>{{ car.price }} zł</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>limit kilometrów</h5>
+            <p>{{ car.mileage_limit }} km</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>wartość samochodu</h5>
+            <p>{{ car.value }} zł</p>
+        </div>
+        <div class="col-md-4 mb-3">
+            <h5>dostępność</h5>
+            <p>{{ car.availability }}</p>
+        </div>
+        <div class="col-md-6 mb-3">
+            <h5>data wygaśnięcia ubezpieczenia</h5>
+            <p>{{ car.insurance_expiry_date }}</p>
+        </div>
+        <div class="col-md-6 mb-3">
+            <h5>wyposażenie</h5>
+            <ul class="list-unstyled">
+                {% for item in car.equipment.all %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

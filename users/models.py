@@ -15,6 +15,7 @@ class Users(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
     identity_document_type = models.CharField(max_length=50, choices=IDENTITY_DOCUMENT_TYPES)
     identity_document_no = models.CharField(max_length=50)
+    email = models.EmailField(unique=True)
     
 class Address(models.Model):
     user = models.OneToOneField(
