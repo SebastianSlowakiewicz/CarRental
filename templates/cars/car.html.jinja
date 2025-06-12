@@ -64,7 +64,11 @@
         </div>
         <div class="col-md-4 mb-3">
             <h5>zużycie paliwa</h5>
-            <p>{{ car.fuel_usage }} l/100km</p>
+            {% if car.engine_type == "elektryk" %}
+                        <p>{{ car.fuel_usage }} kWh/100km</p>
+            {% else %}
+                        <p>{{ car.fuel_usage }} l/100km</p>
+            {% endif %}
         </div>
         <div class="col-md-4 mb-3">
             <h5>cena</h5>
